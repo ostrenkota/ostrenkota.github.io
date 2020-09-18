@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/infotecs/public/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__title"><h2>Тестовое задание для Infotecs</h2></div>
+        </header>
+        <div class="content">
+            <div class="table">
+                <div class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Имя <i class="fas fa-sort"></i></th>
+                                <th>Фамилия <i class="fas fa-sort"></i></th>
+                                <th>Описание <i class="fas fa-sort"></i></th>
+                                <th>Цвет глаз <i class="fas fa-sort"></i></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div>Brooks</div></td>
+                                <td>Stone</td>
+                                <td>Qui aliquip eorum do adipisicing ea. Lorem dolor</td>
+                                <td>blue</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Johnston</td>
+                                <td>Tate</td>
+                                <td>Eu ipsum estt fugiat fugiat ea elit ad veniam </td>
+                                <td>brown</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Susie</td>
+                                <td>Newman</td>
+                                <td>Non eiusmod minim ut anim qui non dolore veniam. Lorem </td>
+                                <td>red</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Kelly</td>
+                                <td>Schwartz</td>
+                                <td>Et commodo n cillum adipisicing ut excepteur nostrud </td>
+                                <td>green</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Brooks</td>
+                                <td>Stone</td>
+                                <td>Qui aliquip esse aborum do adipisicing ea. Lorem dolor</td>
+                                <td>blue</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Johnston</td>
+                                <td>Tate</td>
+                                <td>Euccaecat fugiat fugiat ea elit ad veniam adipisicing </td>
+                                <td>brown</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Susie</td>
+                                <td>Newman</td>
+                                <td>Non eiusmod minim ut anim qui non dolore veniam. Lorem </td>
+                                <td>red</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Susie</td>
+                                <td>Newman</td>
+                                <td>Non eiusmod minim ut anim qui non dolore veniam. Lorem </td>
+                                <td>red</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Kelly</td>
+                                <td>Schwartz</td>
+                                <td>Et commoehenderit. In cillum adipisicing ut excepteur nostrud </td>
+                                <td>green</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Kelly</td>
+                                <td>Schwartz</td>
+                                <td> proident reprehenderit. In cillut excepteur nostrud </td>
+                                <td>green</td>
+                                <td><i class="fas fa-pencil-alt"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table__footer">
+                    <div class="table__editor">
+                        <label>Имя <input type="checkbox"></label>
+                        <label>Фамилия <input type="checkbox"></label>
+                        <label>Описание <input type="checkbox"></label>
+                        <label>Цвет глаз <input type="checkbox"></label>
+                    </div>
+                    <div class="table__slider">
+                        <table>
+                            <tr>
+                                <th><i class="fas fa-angle-left"></i></th>
+                                <th class="selected_page table__slider_clickable"></th>
+                                <th class="table__slider_clickable"></th>
+                                <th class="table__slider_clickable"></th>
+                                <th class="table__slider_clickable"></th>
+                                <th class="table__slider_clickable"></th>
+                                <th><i class="fas fa-angle-right"></i></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="edit">
+                <div class="edit__title">
+                    <h3>Редактирование записи</h3>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="edit__form">
+                    <label> Имя: &nbsp &nbsp &nbsp &nbsp <input type="text" name="firstName"> </label>
+                    <label> Фамилия: <input type="text" name="lastName"> </label>
+                    <p> Описание: </p>
+                    <textarea cols="20" rows="3" name="about"></textarea>
+                    <label> Цвет глаз: <input type="text" name="eyeColor"> </label>
+                    <input id="submit" type="submit" value="Изменить">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import Table from "/infotecs/src/components/table/table.js";
+        import Slider from "/infotecs/src/components/slider/slider.js";
+        import FormSetUp from "/infotecs/src/components/form/form.js";
+
+        const table = new Table(10);
+        table.renderPage(0);
+        const slider = new Slider(table);
+        const form = new FormSetUp();
+        form.setSubmitHandler(table);
+        table.form = form;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+*,
+:before,
+:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+html, body {
+  height: 100%;
+  min-width: 700px;
+  font-family: Helvetica, sans-serif;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: dodgerblue;
+  color: white;
+}
+.header__title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  min-height: 90vh;
+  justify-content: space-evenly;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.table__body table {
+  width: 50vw;
+  height: 70vh;
+  border-collapse: collapse;
+}
+.table__body table thead {
+  background-color: dodgerblue;
+  color: white;
+}
+.table__body table thead tr th:last-child::after {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  min-height: 30px;
+}
+.table__body table thead tr .fa-sort {
+  cursor: pointer;
+}
+.table__body table thead tr th:nth-child(4) {
+  min-width: 85px;
+}
+.table__body table tbody tr:hover {
+  background-color: rgba(30, 144, 255, 0.1);
+}
+.table__body table tbody .fa-pencil-alt {
+  color: #1e90ff;
+}
+.table__body table tbody .fa-pencil-alt:hover {
+  cursor: pointer;
+}
+.table__body table td, .table__body table th {
+  border: 1px solid darkgrey;
+  padding: 0px 10px;
+  font-size: 14px;
+  cursor: default;
+}
+.table__body table td > div {
+  padding-top: 2px;
+  overflow: hidden;
+  max-height: 30px;
+  width: 100%;
+  position: relative;
+}
+.table__body table td div:nth-child(2) {
+  text-align: center;
+  height: 15px;
+}
+.table__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.table__slider {
+  padding-top: 10px;
+}
+.table__slider table {
+  cursor: pointer;
+  border-collapse: collapse;
+}
+.table__slider table th:hover {
+  background-color: lightgray;
+}
+.table__slider table th {
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.table__slider table th.selected_page {
+  background-color: dodgerblue;
+  color: white;
+}
+.table__slider table th.selected_page:hover {
+  cursor: pointer;
+}
+.table__slider table th:nth-child(5) {
+  cursor: default;
+}
+
+.edit {
+  border: 1px solid darkgray;
+  height: 35%;
+  width: 25vw;
+  align-self: center;
+  border-radius: 5%;
+  min-height: 260px;
+  min-width: 200px;
+  overflow: hidden;
+  visibility: hidden;
+}
+.edit__title {
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.edit__title i {
+  cursor: pointer;
+}
+.edit__form {
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.edit__form input, .edit__form textarea {
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.edit__form textarea {
+  height: 50px;
+  resize: none;
+}
+.edit__form #submit {
+  width: 100px;
+  height: 35px;
+  align-self: center;
+  cursor: pointer;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
