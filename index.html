@@ -18,10 +18,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Имя <i class="fas fa-sort"></i></th>
-                                <th>Фамилия <i class="fas fa-sort"></i></th>
-                                <th>Описание <i class="fas fa-sort"></i></th>
-                                <th>Цвет глаз <i class="fas fa-sort"></i></th>
+                                <th>Имя <i class="far fa-caret-square-down"></i></th>
+                                <th>Фамилия <i class="far fa-caret-square-down"></i></th>
+                                <th>Описание <i class="far fa-caret-square-down"></i></th>
+                                <th>Цвет глаз <i class="far fa-caret-square-down"></i></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -144,6 +144,7 @@
         import Slider from "./src/components/slider/slider.js";
         import FormSetUp from "./src/components/form/form.js";
         import ToggleSetUp from "./src/components/toggle/toggle.js"
+        import IconsSetUp from "./src/components/table/icons.js";
 
         const table = new Table(10);
         table.renderPage(0);
@@ -152,6 +153,7 @@
         form.setSubmitHandler(table);
         table.form = form;
         ToggleSetUp(table);
+        IconsSetUp(table);
     </script>
 
 </body>

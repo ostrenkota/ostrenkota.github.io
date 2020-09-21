@@ -2,25 +2,10 @@ import InputData from "../../resources/InputData.js";
 
 class Table {
     constructor(rowsInPage) {
+        this.rowsInPage = rowsInPage;
+        this.loadDataFromJSON(InputData);
         this.tbodyHTML = document.querySelector(".table__body tbody");
-        const dataRows = InputData.map(elem => ({
-                firstName: elem.name.firstName,
-                lastName: elem.name.lastName,
-                about: elem.about,
-                eyeColor: elem.eyeColor
-            })
-        );
-
-        this.pages = [];
-        dataRows.forEach((elem, index) => {
-            if (index % rowsInPage === 0) {
-                this.pages.push([elem]);
-            } else {
-                this.pages[this.pages.length - 1].push(elem);
-            }
-        })
-
-        this.pagesCount = this.pages.length;
+        this.splitToPages();
         this.currentPage = 0;
         this.selectedRow = null;
         this.setPencilsHandler();
@@ -91,6 +76,38 @@ class Table {
         Array.from(this.tbodyHTML.querySelectorAll('tr')).forEach(tr => {
             tr.querySelectorAll("td")[columnNumber].style.display = "";
         })
+    }
+
+    splitToPages() {
+        this.pages = [];
+        this.dataRows.forEach((elem, index) => {
+            if (index % this.rowsInPage === 0) {
+                this.pages.push([elem]);
+            } else {
+                this.pages[this.pages.length - 1].push(elem);
+            }
+        })
+
+        this.pagesCount = this.pages.length;
+    }
+
+    loadDataFromJSON(inputJSONObject) {
+        this.dataRows = inputJSONObject.map(elem => ({
+                firstName: elem.name.firstName,
+                lastName: elem.name.lastName,
+                about: elem.about,
+                eyeColor: elem.eyeColor
+            })
+        );
+    }
+
+    sort(key, isDecrease) {
+        isDecrease = isDecrease ? -1 : 1;
+        this.dataRows.sort((elem1, elem2) => {
+            return elem1[key] > elem2[key] ? isDecrease : -1 * isDecrease;
+        })
+        this.splitToPages();
+        this.renderPage();
     }
 }
 

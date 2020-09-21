@@ -57,11 +57,15 @@ html, body {
   vertical-align: top;
   min-height: 30px;
 }
-.table__body table thead tr .fa-sort {
-  cursor: pointer;
+.table__body table thead tr th {
+  min-width: 100px;
 }
-.table__body table thead tr th:nth-child(4) {
-  min-width: 85px;
+.table__body table thead tr th:last-child {
+  min-width: 30px;
+}
+.table__body table thead tr i {
+  margin-left: 10px;
+  cursor: pointer;
 }
 .table__body table tbody tr:hover {
   background-color: rgba(30, 144, 255, 0.1);

@@ -60,12 +60,17 @@ html, body{
             min-height: 30px;
           }
 
-          .fa-sort{
-            cursor: pointer;
+          th {
+            min-width: 100px;
           }
 
-          th:nth-child(4){
-            min-width: 85px;
+          th:last-child {
+            min-width: 30px;
+          }
+
+          i {
+            margin-left: 10px;
+            cursor: pointer;
           }
         }
       }
