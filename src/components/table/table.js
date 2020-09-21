@@ -1,8 +1,8 @@
-import InputData from "/infotecs/src/resources/InputData.js";
+import InputData from "../../resources/InputData.js";
 
 class Table {
     constructor(rowsInPage) {
-        this.tbodyHTML = document.querySelector(".table__body").querySelector("tbody");
+        this.tbodyHTML = document.querySelector(".table__body tbody");
         const dataRows = InputData.map(elem => ({
                 firstName: elem.name.firstName,
                 lastName: elem.name.lastName,
@@ -67,6 +67,30 @@ class Table {
             index++;
         }
         this.renderPage();
+    }
+
+    hideColumn(columnNumber) {
+        columnNumber = Number(columnNumber);
+        if (columnNumber > 3 || columnNumber < 0)
+        {
+            return null;
+        }
+        Array.from(document.querySelectorAll(".table__body th"))[columnNumber].style.display = "none";
+        Array.from(this.tbodyHTML.querySelectorAll('tr')).forEach(tr => {
+            tr.querySelectorAll("td")[columnNumber].style.display = "none";
+        })
+    }
+
+    showColumn(columnNumber) {
+        columnNumber = Number(columnNumber);
+        if (columnNumber > 3 || columnNumber < 0)
+        {
+            return null;
+        }
+        Array.from(document.querySelectorAll(".table__body th"))[columnNumber].style.display = "";
+        Array.from(this.tbodyHTML.querySelectorAll('tr')).forEach(tr => {
+            tr.querySelectorAll("td")[columnNumber].style.display = "";
+        })
     }
 }
 

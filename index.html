@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/infotecs/public/style.css">
+    <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
           integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
@@ -101,10 +101,10 @@
                 </div>
                 <div class="table__footer">
                     <div class="table__editor">
-                        <label>Имя <input type="checkbox"></label>
-                        <label>Фамилия <input type="checkbox"></label>
-                        <label>Описание <input type="checkbox"></label>
-                        <label>Цвет глаз <input type="checkbox"></label>
+                        <label>Имя <input type="checkbox" checked></label>
+                        <label>Фамилия <input type="checkbox" checked></label>
+                        <label>Описание <input type="checkbox" checked></label>
+                        <label>Цвет глаз <input type="checkbox" checked></label>
                     </div>
                     <div class="table__slider">
                         <table>
@@ -140,9 +140,10 @@
 
 
     <script type="module">
-        import Table from "/infotecs/src/components/table/table.js";
-        import Slider from "/infotecs/src/components/slider/slider.js";
-        import FormSetUp from "/infotecs/src/components/form/form.js";
+        import Table from "./src/components/table/table.js";
+        import Slider from "./src/components/slider/slider.js";
+        import FormSetUp from "./src/components/form/form.js";
+        import ToggleSetUp from "./src/components/toggle/toggle.js"
 
         const table = new Table(10);
         table.renderPage(0);
@@ -150,6 +151,7 @@
         const form = new FormSetUp();
         form.setSubmitHandler(table);
         table.form = form;
+        ToggleSetUp(table);
     </script>
 
 </body>
