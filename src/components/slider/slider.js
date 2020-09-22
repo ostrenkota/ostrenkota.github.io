@@ -1,3 +1,7 @@
+/**
+ *
+ */
+
 class Slider {
     constructor(table) {
         this.table = table;

@@ -1,0 +1,57 @@
+@import "../variables.scss";
+
+.edit{
+  border: 1px solid darkgray;
+  height: 35%;
+  width: 25vw;
+  align-self: center;
+  border-radius: 5%;
+  min-height: 260px;
+  min-width: 200px;
+  overflow: hidden;
+  visibility: hidden;
+
+
+  &__title{
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    background-color: $blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &__form{
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    input, textarea {
+      margin-bottom: 10px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+    }
+
+    textarea{
+      height: 50px;
+      resize: none;
+    }
+
+    #submit{
+      width: 100px;
+      height: 35px;
+      align-self: center;
+      cursor: pointer;
+      background-color: $blue;
+      color: white;
+      border-radius: 10px;
+    }
+  }
+}

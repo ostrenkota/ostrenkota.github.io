@@ -1,0 +1,35 @@
+@import "../variables.scss";
+
+.table {
+  &__slider {
+    padding-top: 10px;
+
+    table {
+      cursor: pointer;
+      border-collapse: collapse;
+
+      th:hover {
+        background-color: $lightBlue;
+      }
+
+      th {
+        border: 1px solid $gray;
+        padding: 5px 10px;
+        color: rgba(black, 0.6);
+
+        &.selected_page {
+          background-color: $blue;
+          color: white;
+        }
+
+        &.selected_page:hover {
+          cursor: pointer;
+        }
+      }
+
+      th:nth-child(5) {
+        cursor: default;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import "../variables.scss";
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 50vw;
+  min-width: 536px;
+
+  &__body {
+    align-self: flex-end;
+    width: 100%;
+
+    table {
+      height: 70vh;
+      border-collapse: collapse;
+      width: 100%;
+
+      thead {
+        background-color: rgba($blue, 1);
+        color: white;
+
+        tr {
+          th:last-child::after {
+            content: "";
+            display: inline-block;
+            vertical-align: top;
+            min-height: 30px;
+          }
+
+          th {
+            min-width: 100px;
+          }
+
+          th:last-child {
+            min-width: 20px;
+          }
+
+          i {
+            margin-left: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      tbody {
+        tr:hover {
+          background-color: $lightBlue;
+        }
+
+        .fa-pencil-alt {
+          color: $blue;
+        }
+
+        .fa-pencil-alt:hover {
+          cursor: pointer;;
+        }
+      }
+
+      td, th {
+        border: 1px solid darkgrey;
+        padding: 0px 10px;
+        font-size: 14px;
+        cursor: default;
+      }
+
+      td > div {
+        padding-top: 2px;
+        overflow: hidden;
+        max-height: 30px;
+        width: 100%;
+        position: relative;
+      }
+
+      td div:nth-child(2) {
+        text-align: center;
+        height: 15px;
+      }
+    }
+  }
+}

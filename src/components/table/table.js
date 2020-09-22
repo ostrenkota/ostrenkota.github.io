@@ -1,7 +1,7 @@
 import InputData from "../../resources/InputData.js";
 
 /**
- *
+ * Сlass is intended to describe the logic of interaction with the table
  */
 class Table {
 
@@ -20,6 +20,12 @@ class Table {
         this.setPencilsHandler();
 
     }
+
+    /**
+     *
+     * @param {number} pageNumber
+     * @returns {null}
+     */
     renderPage(pageNumber = this.currentPage) {
         pageNumber = Number(pageNumber);
         const page = this.pages[pageNumber];
