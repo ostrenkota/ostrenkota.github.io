@@ -76,23 +76,7 @@
         </div>
     </div>
 
-
-    <script type="module">
-        import Table from "./src/components/table/table.js";
-        import Slider from "./src/components/slider/slider.js";
-        import FormSetUp from "./src/components/form/form.js";
-        import ToggleSetUp from "./src/components/toggle/toggle.js"
-        import IconsSetUp from "./src/components/table/icons.js";
-
-        const table = new Table(10);
-        table.renderPage(0);
-        const slider = new Slider(table);
-        const form = new FormSetUp();
-        form.setSubmitHandler(table);
-        table.form = form;
-        ToggleSetUp(table);
-        IconsSetUp(table);
-    </script>
+    <script src="./public/script.js"></script>
 
 </body>
 </html>
