@@ -1,7 +1,6 @@
 /**
- *
+ * Initializes buttons for selecting a page
  */
-
 class Slider {
     constructor(table) {
         this.table = table;
@@ -19,10 +18,14 @@ class Slider {
             }
         )
         this.render(0);
-        this.setUp();
+        this._setUp();
     }
 
-    setUp() {
+    /**
+     *
+     * @private
+     */
+    _setUp() {
         this.buttons.forEach((elem, index) => {
             elem.html.onclick = () => {
                 this.render(index);
@@ -32,6 +35,10 @@ class Slider {
         })
     }
 
+    /**
+     *
+     * @param {number} selectedButton Index of selected button
+     */
     render(selectedButton) {
         this.buttons.forEach(elem => {
             elem.html.textContent = elem.value;

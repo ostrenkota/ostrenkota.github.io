@@ -1,5 +1,5 @@
 /**
- *
+ * Initializes a form for editing records
  */
 class FormSetUp {
     constructor() {
@@ -16,7 +16,7 @@ class FormSetUp {
 
     /**
      *
-     * @param {Table} table
+     * @param {Table} table instance of Table class
      */
     setSubmitHandler(table) {
         this.submit.onclick = () => {

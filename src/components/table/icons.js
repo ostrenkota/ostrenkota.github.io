@@ -1,3 +1,7 @@
+/**
+ * Initializes buttons for sorting
+ * @param {Table} table instance of Table class
+ */
 function IconsSetUp(table) {
     const mapping = ["firstName", "lastName", "about", "eyeColor"];
     Array.from(document.querySelectorAll(".table__body thead i")).forEach((icon, index) => {

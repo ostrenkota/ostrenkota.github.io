@@ -54,11 +54,22 @@
                     <i class="fas fa-times"></i>
                 </div>
                 <div class="edit__form">
-                    <label> Имя: &nbsp &nbsp &nbsp &nbsp <input type="text" name="firstName"> </label>
-                    <label> Фамилия: <input type="text" name="lastName"> </label>
+                    <div class="edit__row">
+                        <div>Имя:</div>
+                        <label><input type="text" name="firstName"></label>
+                    </div>
+                    <div class="edit__row">
+                        <div>Фамилия:</div>
+                        <label><input type="text" name="lastName"></label>
+                    </div>
                     <p> Описание: </p>
-                    <textarea cols="20" rows="3" name="about"></textarea>
-                    <label> Цвет глаз: <input type="text" name="eyeColor"> </label>
+                    <div class="edit__row">
+                        <textarea cols="20" rows="6" name="about"></textarea>
+                    </div>
+                    <div class="edit__row">
+                        <div>Цвет глаз:</div>
+                        <label><input type="text" name="eyeColor"></label>
+                    </div>
                     <input id="submit" type="submit" value="Изменить">
                 </div>
             </div>

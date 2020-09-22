@@ -193,16 +193,26 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
 }
-.edit__form input, .edit__form textarea {
+.edit__row {
+  display: flex;
   margin-bottom: 10px;
+}
+.edit__row div {
+  flex: 1;
+}
+.edit__row input, .edit__row textarea {
   border: 1px solid lightgray;
   border-radius: 5px;
+  padding-left: 2px;
 }
-.edit__form textarea {
-  height: 50px;
+.edit__row label {
+  flex: 2;
+}
+.edit__row textarea {
+  width: 100%;
   resize: none;
 }
-.edit__form #submit {
+.edit #submit {
   width: 100px;
   height: 35px;
   align-self: center;
@@ -210,6 +220,7 @@ html, body {
   background-color: dodgerblue;
   color: white;
   border-radius: 10px;
+  justify-self: center;
 }
 
 /*# sourceMappingURL=style.css.map */

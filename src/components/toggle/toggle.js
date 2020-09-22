@@ -1,3 +1,7 @@
+/**
+ * Initializes checkboxes for hiding and showing columns
+ * @param {Table} table instance of Table class
+ */
 function ToggleSetUp(table) {
     Array.from(document.querySelectorAll(".table__editor input")).forEach((input, index) => {
         input.onchange = () => {
@@ -8,7 +12,6 @@ function ToggleSetUp(table) {
                 input.parentNode.classList.add("table__editor_deactivated");
                 table.hideColumn(index);
             }
-         //   input.checked ? table.showColumn(index) : table.hideColumn(index);
         }
     })
 }

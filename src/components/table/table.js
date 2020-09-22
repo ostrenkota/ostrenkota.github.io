@@ -1,7 +1,7 @@
 import InputData from "../../resources/InputData.js";
 
 /**
- * Сlass is intended to describe the logic of interaction with the table
+ * Class is intended to describe the logic of interaction with the table
  */
 class Table {
 
@@ -11,20 +11,19 @@ class Table {
      */
     constructor(rowsInPage) {
         this.rowsInPage = rowsInPage;
-        this.generateTable();
-        this.loadDataFromJSON(InputData);
+        this._generateTable();
+        this._loadDataFromJSON(InputData);
         this.tbodyHTML = document.querySelector(".table__body tbody");
-        this.splitToPages();
+        this._splitToPages();
         this.currentPage = 0;
         this.selectedRow = null;
-        this.setPencilsHandler();
+        this._setPencilsHandler();
 
     }
 
     /**
-     *
-     * @param {number} pageNumber
-     * @returns {null}
+     * Displays the desired table page on the screen
+     * @param {number} pageNumber Number of page to render
      */
     renderPage(pageNumber = this.currentPage) {
         pageNumber = Number(pageNumber);
@@ -49,7 +48,11 @@ class Table {
         }
     }
 
-    setPencilsHandler() {
+    /**
+     * Initializes buttons for editing entries
+     * @private
+     */
+    _setPencilsHandler() {
         Array.from(document.querySelectorAll(".fa-pencil-alt")).forEach((elem, index) => {
             elem.onclick = () => {
                 this.selectedRow = index;
@@ -62,6 +65,10 @@ class Table {
         })
     }
 
+    /**
+     * External interface for changing a record
+     * @param {Array} rowData Array of data to insert
+     */
     editRow(rowData) {
         const row = this.pages[this.currentPage][this.selectedRow];
         let index = 0;
@@ -86,6 +93,10 @@ class Table {
         }
     }
 
+    /**
+     * Hides column by number
+     * @param columnNumber Number of column to hide
+     */
     hideColumn(columnNumber) {
         columnNumber = Number(columnNumber);
         if (columnNumber > 3 || columnNumber < 0)
@@ -98,6 +109,10 @@ class Table {
         })
     }
 
+    /**
+     * Show hidden column by number
+     * @param columnNumber Number of column to show
+     */
     showColumn(columnNumber) {
         columnNumber = Number(columnNumber);
         if (columnNumber > 3 || columnNumber < 0)
@@ -110,7 +125,11 @@ class Table {
         })
     }
 
-    splitToPages() {
+    /**
+     * Splits input data to pages
+     * @private
+     */
+    _splitToPages() {
         this.pages = [];
         this.dataRows.forEach((elem, index) => {
             if (index % this.rowsInPage === 0) {
@@ -123,7 +142,12 @@ class Table {
         this.pagesCount = this.pages.length;
     }
 
-    loadDataFromJSON(inputJSONObject) {
+    /**
+     * Loads data from Object gotten from incoming JSON
+     * @param {Object} inputJSONObject
+     * @private
+     */
+    _loadDataFromJSON(inputJSONObject) {
         this.dataRows = inputJSONObject.map(elem => ({
                 firstName: elem.name.firstName,
                 lastName: elem.name.lastName,
@@ -133,16 +157,25 @@ class Table {
         );
     }
 
+    /**
+     * Sorts data by key
+     * @param {string} key Name of column to sort
+     * @param {boolean} isDecrease
+     */
     sort(key, isDecrease) {
         isDecrease = isDecrease ? -1 : 1;
         this.dataRows.sort((elem1, elem2) => {
             return elem1[key] > elem2[key] ? isDecrease : -1 * isDecrease;
         })
-        this.splitToPages();
+        this._splitToPages();
         this.renderPage();
     }
 
-    generateTable() {
+    /**
+     * Creates html markup for a table
+     * @private
+     */
+    _generateTable() {
         let HTML = "";
         for (let i = 0; i < this.rowsInPage; i++) {
             HTML += `
