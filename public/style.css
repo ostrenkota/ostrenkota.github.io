@@ -41,11 +41,17 @@ html, body {
   display: flex;
   flex-direction: column;
   align-self: center;
+  width: 50vw;
+  min-width: 536px;
+}
+.table__body {
+  align-self: flex-end;
+  width: 100%;
 }
 .table__body table {
-  width: 50vw;
   height: 70vh;
   border-collapse: collapse;
+  width: 100%;
 }
 .table__body table thead {
   background-color: dodgerblue;
@@ -61,7 +67,7 @@ html, body {
   min-width: 100px;
 }
 .table__body table thead tr th:last-child {
-  min-width: 30px;
+  min-width: 20px;
 }
 .table__body table thead tr i {
   margin-left: 10px;
@@ -71,7 +77,7 @@ html, body {
   background-color: rgba(30, 144, 255, 0.1);
 }
 .table__body table tbody .fa-pencil-alt {
-  color: #1e90ff;
+  color: dodgerblue;
 }
 .table__body table tbody .fa-pencil-alt:hover {
   cursor: pointer;
@@ -94,11 +100,51 @@ html, body {
   height: 15px;
 }
 .table__footer {
+  width: 100%;
+  min-width: 536px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+}
+.table__editor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  height: 30px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+.table__editor_deactivated {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid gray !important;
+}
+.table__editor_deactivated i {
+  color: lightgray !important;
+}
+.table__editor label {
+  margin: 0px 2px;
+  width: 23%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: dodgerblue;
+  color: white;
+}
+.table__editor label input {
+  display: none;
+}
+.table__editor label i {
+  color: white;
+  font-size: 15px;
+}
+.table__editor input {
+  margin: 0px 10px;
 }
 .table__slider {
   padding-top: 10px;
@@ -108,7 +154,7 @@ html, body {
   border-collapse: collapse;
 }
 .table__slider table th:hover {
-  background-color: lightgray;
+  background-color: rgba(30, 144, 255, 0.1);
 }
 .table__slider table th {
   border: 1px solid lightgray;

@@ -1,3 +1,6 @@
+/**
+ *
+ */
 class FormSetUp {
     constructor() {
         this.inputs = Array.from(document.querySelector(".edit__form").querySelectorAll("input"));
@@ -11,9 +14,14 @@ class FormSetUp {
         }
     }
 
+    /**
+     *
+     * @param {Table} table
+     */
     setSubmitHandler(table) {
         this.submit.onclick = () => {
             table.editRow(this.inputs.map(elem => elem.value))
+            document.querySelector(".edit").style.visibility = "hidden";
         }
     }
 

@@ -1,14 +1,24 @@
 import InputData from "../../resources/InputData.js";
 
+/**
+ *
+ */
 class Table {
+
+    /**
+     *
+     * @param {number} rowsInPage Number of rows in table page
+     */
     constructor(rowsInPage) {
         this.rowsInPage = rowsInPage;
+        this.generateTable();
         this.loadDataFromJSON(InputData);
         this.tbodyHTML = document.querySelector(".table__body tbody");
         this.splitToPages();
         this.currentPage = 0;
         this.selectedRow = null;
         this.setPencilsHandler();
+
     }
     renderPage(pageNumber = this.currentPage) {
         pageNumber = Number(pageNumber);
@@ -19,11 +29,13 @@ class Table {
                 .forEach((trHTML, index) => {
                     const row = page[index];
                     const tdsHTML = Array.from(trHTML.querySelectorAll("td"));
-                    Object.values(row).forEach((value , valIndex) => {
-                        tdsHTML[valIndex].innerHTML = valIndex === 2 ?
-                            "<div>" + value + "</div><div>...</div><div>" :
-                            "<div>" + value + "</div>";
-                    })
+                    const values = Object.values(row);
+                    const approvedColors = ["red", "blue", "brown", "green", "gray"];
+
+                    tdsHTML[0].innerHTML = "<div>" + values[0] + "</div>";
+                    tdsHTML[1].innerHTML = "<div>" + values[1] + "</div>";
+                    tdsHTML[2].innerHTML = "<div>" + values[2] + "</div><div>...</div><div>";
+                    tdsHTML[3].style.background = Object.values(row)[3];
                 })
         }
         else {
@@ -48,10 +60,24 @@ class Table {
         const row = this.pages[this.currentPage][this.selectedRow];
         let index = 0;
         for (let key in row) {
+            if (key === "eyeColor") {
+                row[key] = checkColor(rowData[index]) ? rowData[index] : row[key];
+                index++;
+                continue;
+            }
             row[key] = rowData[index];
             index++;
         }
         this.renderPage();
+
+        function checkColor(color) {
+            const correctColors = ["red", "blue", "brown", "green", "gray"];
+            if (correctColors.includes(color)) {
+                return true;
+            }
+            alert("Некорректный цвет");
+            return false;
+        }
     }
 
     hideColumn(columnNumber) {
@@ -108,6 +134,22 @@ class Table {
         })
         this.splitToPages();
         this.renderPage();
+    }
+
+    generateTable() {
+        let HTML = "";
+        for (let i = 0; i < this.rowsInPage; i++) {
+            HTML += `
+                <tr>
+                    <td><div></div></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                </tr>
+            `;
+        }
+        document.querySelector(".table__body tbody").innerHTML = HTML;
     }
 }
 
